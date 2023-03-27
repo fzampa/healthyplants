@@ -1,0 +1,20 @@
+apiVersion: skaffold/v4beta3
+kind: Config
+metadata:
+  name: healthyplants
+build:
+  artifacts:
+    - image: busybox
+      context: app
+      buildpacks:
+        builder: gcr.io/buildpacks/builder:v1
+        env:
+          - "GOOGLE_RUNTIME_VERSION=17"
+deploy:
+  helm:
+    releases:
+      - name: healthyplants
+        chartPath: healthyplants
+        valuesFiles:
+          - healthyplants/values.yaml
+        version: 0.1.0

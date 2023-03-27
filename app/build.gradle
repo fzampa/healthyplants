@@ -48,5 +48,6 @@ tasks.named('asciidoctor') {
 }
 
 contracts {
+	failOnNoContracts = false
 }
 
