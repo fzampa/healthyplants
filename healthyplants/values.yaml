@@ -9,9 +9,10 @@ image:
   tag: "v0.0.1"
 
 service:
-  type: NodePort
+  type: ClusterIP
   port: 8080
-  nodePort: 31666
 
 ingress:
-  enabled: false
+  enabled: true
+  className: nginx
+  hostName: healthyplants.mylocal
